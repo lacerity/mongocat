@@ -1,0 +1,32 @@
+{
+	"scripts": {
+		"format": "prettier --write .",
+		"lint": "eslint --fix .",
+		"lint:check": "eslint .",
+		"pre-commit": "lint-staged",
+		"install-client": "cd client && pnpm install",
+		"install-server": "cd server && pnpm install",
+		"prepare": "husky"
+	},
+	"lint-staged": {
+		"*.{js,jsx,ts,tsx}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"server/**/*.ts": [
+			"prettier --write",
+			"eslint --fix"
+		]
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^8.24.1",
+		"@typescript-eslint/parser": "^8.24.1",
+		"eslint": "^9.20.1",
+		"eslint-config-next": "^15.1.7",
+		"eslint-config-prettier": "^10.0.1",
+		"eslint-plugin-prettier": "^5.2.3",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.4.3",
+		"prettier": "^3.5.1"
+	}
+}

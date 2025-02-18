@@ -1,0 +1,71 @@
+{
+    "root": true, // Important for monorepos
+    "ignorePatterns": [
+        "**/dist/**",
+        "**/node_modules/**"
+    ], // Ignore build output and dependencies
+    "overrides": [
+        {
+            "files": [
+                "*.js",
+                "*.jsx"
+            ], // JavaScript files in client
+            "extends": [
+                "eslint:recommended",
+                "plugin:react/recommended",
+                "prettier"
+            ],
+            "plugins": [
+                "react",
+                "prettier"
+            ],
+            "rules": {
+                // JS-specific rules if needed
+            }
+        },
+        {
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ], // TypeScript files in client
+            "extends": [
+                "eslint:recommended",
+                "plugin:react/recommended",
+                "plugin:@typescript-eslint/recommended",
+                "next/core-web-vitals", // Next.js specific rules
+                "prettier"
+            ],
+            "plugins": [
+                "react",
+                "@typescript-eslint",
+                "prettier"
+            ],
+            "parserOptions": {
+                "project": "./client/tsconfig.json" // Path to client's tsconfig
+            },
+            "rules": {
+                // TS-specific rules if needed
+            }
+        },
+        {
+            "files": [
+                "server/**/*.ts"
+            ], // TypeScript files in server
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "prettier"
+            ],
+            "plugins": [
+                "@typescript-eslint",
+                "prettier"
+            ],
+            "parserOptions": {
+                "project": "./server/tsconfig.json" // Path to server's tsconfig
+            },
+            "rules": {
+                // Server-specific rules if needed
+            }
+        }
+    ]
+}
